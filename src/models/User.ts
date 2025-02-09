@@ -1,5 +1,5 @@
-import { Schema, Types, model, type Document } from 'mongoose';
-import Thought from './Thought';
+import { Schema, model, type Document } from 'mongoose';
+import Thought from './Thought.js';
 interface IUser extends Document {
     username: string;
     email: string;
@@ -34,7 +34,7 @@ const userSchema = new Schema<IUser> (
         ],
         friends:  [{
             type: Schema.Types.ObjectId,
-            ref: 'user'
+            ref: 'User'
         }],
         
     }
@@ -43,6 +43,6 @@ userSchema.virtual('friendCount').get(function () {
     return this.friends?.length;
   });
 
-  const User = model ('user', userSchema)
+  const User = model('user', userSchema)
 
   export default User 

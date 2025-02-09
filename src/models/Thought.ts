@@ -23,7 +23,7 @@ const reactionSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now,
-        get: (timestamp) => new Date(timestamp).toLocaleString()
+        get: (timestamp: string | number | Date) => new Date(timestamp).toLocaleString()
       },
 })
 
