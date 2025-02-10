@@ -1,5 +1,4 @@
 import { Schema, model, type Document } from 'mongoose';
-import Thought from './Thought.js';
 interface IUser extends Document {
     username: string;
     email: string;
@@ -28,7 +27,7 @@ const userSchema = new Schema<IUser> (
         },
         thoughts: [
             {
-                type: Thought,
+                type: Schema.Types.ObjectId,
                 ref: 'Thought'
             }
         ],

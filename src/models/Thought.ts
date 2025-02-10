@@ -1,11 +1,5 @@
 import { Schema, Types, model, type Document } from 'mongoose';
 
-interface IThought extends Document {
-    thoughtText: string;
-    createdAt: Date;
-    username: string;
-    reactions: Schema.Types.ObjectId[]
-}
 const reactionSchema = new Schema({
     reactionId: {
         type: Schema.Types.ObjectId,
@@ -24,9 +18,15 @@ const reactionSchema = new Schema({
         type: Date,
         default: Date.now,
         get: (timestamp: string | number | Date) => new Date(timestamp).toLocaleString()
-      },
+    },
 })
 
+interface IThought extends Document {
+    thoughtText: string;
+    createdAt: Date;
+    username: string;
+    reactions: typeof reactionSchema[];
+}
 const thoughtSchema = new Schema<IThought>(
     {
         thoughtText: {
