@@ -36,6 +36,12 @@ const userSchema = new Schema<IUser> (
             ref: 'User'
         }],
         
+    },
+    {
+        toJSON: {
+            virtuals: true,
+        },
+        id: false
     }
 )
 userSchema.virtual('friendCount').get(function () {

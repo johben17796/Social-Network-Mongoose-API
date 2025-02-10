@@ -2,10 +2,10 @@
 
 // const cleanDB = async (): Promise<void> => {
 //   try {
-//     await Course.deleteMany({});
+//     await User.deleteMany({});
 //     console.log('Course collection cleaned.');
 
-//     await Student.deleteMany({});
+//     await Thought.deleteMany({});
 //     console.log('Student collection cleaned.');
 
 //   } catch (err) {
